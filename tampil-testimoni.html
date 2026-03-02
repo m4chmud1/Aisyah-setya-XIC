@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Usaha Buku</title>  
+<link rel="stylesheet" href="style.css" />
+</head>
+<body> 
+    <header>
+        <img src="rain.jpg" alt="header" height="300" width="1200">
+    </header>
+ <nav class="card-menu"> <!---kode untuk navigasi-->
+  <a href="index.html"class="card-item">Beranda</a>
+  <a href="produk.html"class="card-item">Produk</a>
+  <a href="bedah-buku.html"class="card-item">Bedah Buku</a> 
+  <a href="testimoni.html"class="card-item">Testimoni</a>
+  <a href="tampil-testimoni.html"class="card-item">Testimoni pembeli</a>
+  <a href="kontak.html"class="card-item">Kontak</a>
+  <a href="event.html"class="card-item">Event</a>
+ </nav> 
+ <main class="formulir">
+    <h2>Testimoni-testimoni Pembeli</h2>
+    <div id="daftarTestimoni"></div>
+   <button id="hapusSemua">Hapus Semua Testimoni</button>
+   </div>
+ <section>
+    <div id="daftarTestimoni"></div>
+ </section>
+ </main>
+ <footer>
+    <p>&copy;2026 Nangseu Mood</p>
+ </footer>
+ <script>
+    const container = document.getElementById('daftarTestimoni');
+    const testimoniList = JSON.parse(localStorage.getItem('testimoniList')) || [];
+    if(testimoniList.length === 0) {
+        container.innerHTML = "<p>Belum ada testimoni.</p>";
+    } else {
+        testimoniList.forEach((t, i) => {
+            const el = document.createElement('div');
+            el.className = 'testimoni-box';
+            el.innerHTML = `
+            <p><strong>Nama:</strong> ${t.nama}</p>
+            <p><strong>asal:</strong> ${t.asal}</p>
+            <p><strong>Email:</strong> ${t.email}</p>
+            <p><strong>Judul Buku yang dibeli:</strong> ${t.judul}</p>
+            <p><strong>Rating Buku:</strong> ${t.rating}</p>
+            <p><strong>Testimoni:</strong> ${t.pesan}</p>
+            `;
+            container.appendChild(el);
+
+        });
+     }
+     document.getElementById("hapusSemua").addEventListener("click",function() {
+        const konfirmasi = confirm("Apakah Anda Yakin ingin menghapus semua testimoni?");
+        if(konfirmasi) {
+            localStorage.removeItem("testimoniList");
+            location.reload();
+
+        }
+     });
+     
+ </script>
+</body>
+</html>

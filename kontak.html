@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Profil Usaha Buku</title>  
+<link rel="stylesheet" href="style.css" />
+<style>
+body {
+    background-color: #1e1e1e;
+    color: #eaeaea;
+    font-family: Arial, sans-serif;
+}
+input, textarea {
+    background-color: #2b2b2b;   /* warna kotak */
+    color: #ffffff;              /* warna teks */
+    border: 1px solid #555;
+    padding: 10px;
+    width: 300px;
+    border-radius: 6px;
+}
+textarea {
+    resize: none;
+}
+button {
+    background-color: #6b5b4b;
+    color: white;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: #8a7661;
+}
+</style>
+</head>
+<body> 
+ <nav class="card-menu"> <!---kode untuk navigasi-->
+  <a href="index.html"class="card-item">Beranda</a>
+  <a href="produk.html"class="card-item">Produk</a>
+  <a href="bedah-buku.html"class="card-item">Bedah Buku</a> 
+  <a href="testimoni.html"class="card-item">Testimoni</a>
+  <a href="tampil-testimoni.html"class="card-item">Testimoni pembeli</a>
+  <a href="kontak.html"class="card-item">Kontak</a>
+  <a href="event.html"class="card-item">Event</a>
+ </nav> 
+ <h1>Kontak Kami</h1>
+
+<h3>Alamat Toko</h3>
+<p>
+    Toko Buku Nangseu<br>
+    Jl. 45 Khao San Road
+    Phra Nakhon <br>
+    Bangkok 10110, Thailand<br>
+    Telp: +66 4234678712
+    Email:nangseumood13@gmail.com<br>
+</p>
+<h3>Form Kontak</h3>
+
+<form onsubmit="kirimPesan(event)">
+    <label>Nama</label><br>
+    <input type="text" required><br><br>
+
+    <label>Email</label><br>
+    <input type="email" required><br><br>
+
+    <label>Pesan</label><br>
+    <textarea rows="4" required></textarea><br><br>
+
+    <button type="submit">Kirim</button>
+</form>
+
+<script>
+function kirimPesan(e) {
+    e.preventDefault();        // stop reload
+    window.location.href = "berhasil.html"; // PINDAH HALAMAN
+}
+</script>
+</body>
+</html>
+
